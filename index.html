@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArsenalCache Whaticket Pro - Solução Completa para WhatsApp Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #3B82F6 100%);
+        }
+
+        .logo-gradient {
+            background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.15);
+        }
+
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .pulse-glow {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
+        }
+
+        .text-shimmer {
+            background: linear-gradient(-45deg, #8B5CF6, #6366F1, #3B82F6, #8B5CF6);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .pricing-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .pricing-card:hover {
+            transform: scale(1.05);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #8B5CF6, #6366F1, #3B82F6);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+
+        .modern-button {
+            background: linear-gradient(135deg, #8B5CF6, #6366F1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modern-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .modern-button:hover::before {
+            left: 100%;
+        }
+
+        .section-blur {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+
+<body class="antialiased text-gray-800 overflow-x-hidden">
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <img src="attached_assets/logo 14_1757072525717.png" alt="ArsenalCache Logo" class="h-12 w-auto">
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-purple-600 transition-colors">Recursos</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition-colors">Preços</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-purple-600 transition-colors">Depoimentos</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors">Contato</a>
+                </div>
+                <a href="#pricing" class="modern-button text-white px-6 py-2 rounded-full font-semibold">
+                    Começar Agora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="gradient-bg absolute inset-0"></div>
+        
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-20 w-32 h-32 bg-white rounded-full hero-animation"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-white rounded-full hero-animation" style="animation-delay: -2s;"></div>
+            <div class="absolute bottom-20 left-1/4 w-40 h-40 bg-white rounded-full hero-animation" style="animation-delay: -4s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center text-white">
+                <div class="mb-12 hero-animation">
+                    <img src="attached_assets/logo 14_1757072525717.png" alt="ArsenalCache Logo" class="h-24 w-auto mx-auto mb-8">
+                    <h1 class="text-5xl md:text-7xl font-black mb-6">
+                        Seu WhatsApp Business
+                        <span class="block text-shimmer">Ultra Moderno</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto">
+                        A plataforma definitiva com <span class="font-bold">SUA marca</span> - Sistema completo com usuários ilimitados, conexões sem limite e personalização 100% whitelabel.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
+                        <a href="#pricing" class="modern-button pulse-glow text-white font-bold py-4 px-8 rounded-full inline-flex items-center transition-all duration-300">
+                            <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                            Garantir Desconto Hoje
+                        </a>
+                        <a href="#demo" class="glassmorphism text-white hover:bg-white hover:text-purple-600 font-semibold py-4 px-8 rounded-full inline-flex items-center transition-all duration-300">
+                            <i class="fas fa-play mr-3"></i>
+                            Ver Demonstração
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="glassmorphism p-6 rounded-2xl text-center feature-card">
+                        <i class="fas fa-infinity text-4xl mb-3"></i>
+                        <p class="font-bold text-lg">Usuários Ilimitados</p>
+                    </div>
+                    <div class="glassmorphism p-6 rounded-2xl text-center feature-card">
+                        <i class="fas fa-plug text-4xl mb-3"></i>
+                        <p class="font-bold text-lg">Conexões Infinitas</p>
+                    </div>
+                    <div class="glassmorphism p-6 rounded-2xl text-center feature-card">
+                        <i class="fas fa-robot text-4xl mb-3"></i>
+                        <p class="font-bold text-lg">IA Avançada</p>
+                    </div>
+                    <div class="glassmorphism p-6 rounded-2xl text-center feature-card">
+                        <i class="fas fa-paint-brush text-4xl mb-3"></i>
+                        <p class="font-bold text-lg">100% WhiteLabel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section id="demo" class="py-20 section-blur">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">
+                    <i class="fas fa-play-circle text-purple-600 mr-4"></i>
+                    Veja o Sistema em Ação
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Descubra como o ArsenalCache Whaticket Pro pode revolucionar seu atendimento e aumentar suas vendas
+                </p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl feature-card">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe 
+                            width="100%" 
+                            height="600" 
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                            frameborder="0" 
+                            allowfullscreen 
+                            class="rounded-3xl"
+                        ></iframe>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent pointer-events-none rounded-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">
+                    <span class="text-shimmer">Recursos Revolucionários</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Tudo que você precisa para dominar o atendimento via WhatsApp
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Core System -->
+                <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="gradient-bg w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 logo-gradient">Sistema Multiatendente</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Múltiplos atendentes em um único número
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Transferência inteligente de atendimento
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Gestão avançada de tickets
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- AI Chatbot -->
+                <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="gradient-bg w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 logo-gradient">IA e Automação</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Chatbot com IA avançada
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Flow Builder visual e intuitivo
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Respostas automáticas inteligentes
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Analytics -->
+                <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="gradient-bg w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 logo-gradient">Analytics & Relatórios</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Dashboard em tempo real
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Métricas de performance
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Relatórios personalizados
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Integrations -->
+                <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="gradient-bg w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-plug text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 logo-gradient">Integrações Nativas</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            APIs completas e documentadas
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Webhooks em tempo real
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Typebot, N8N e muito mais
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- WhiteLabel -->
+                <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="gradient-bg w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 logo-gradient">100% WhiteLabel</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Sua marca e identidade visual
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Logo e cores personalizadas
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Domínio próprio incluído
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="gradient-bg w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 logo-gradient">Suporte Premium</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Instalação em 24 horas
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Suporte técnico especializado
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-purple-500 mr-3 mt-1"></i>
+                            Atualizações automáticas
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl font-black logo-gradient mb-2">1200+</div>
+                    <p class="text-gray-600">Empresas Ativas</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-black logo-gradient mb-2">85%</div>
+                    <p class="text-gray-600">Redução no Tempo</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-black logo-gradient mb-2">3x</div>
+                    <p class="text-gray-600">Mais Conversões</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-black logo-gradient mb-2">24/7</div>
+                    <p class="text-gray-600">Disponibilidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 section-blur">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">
+                    <span class="text-shimmer">Planos Exclusivos</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Escolha o plano perfeito para revolucionar seu atendimento
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="pricing-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-4">Starter</h3>
+                        <div class="text-4xl font-black logo-gradient mb-2">R$ 197</div>
+                        <p class="text-gray-600">/mês</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-500 mr-3"></i>
+                            Até 3 atendentes
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-500 mr-3"></i>
+                            5 conexões WhatsApp
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-500 mr-3"></i>
+                            Chatbot básico
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-500 mr-3"></i>
+                            Suporte por email
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-full font-semibold hover:bg-gray-300 transition-colors">
+                        Começar Agora
+                    </button>
+                </div>
+
+                <!-- Professional Plan (Featured) -->
+                <div class="pricing-card bg-gradient-to-br from-purple-600 to-blue-600 p-8 rounded-3xl shadow-2xl text-white relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full text-sm font-bold">
+                        Mais Popular
+                    </div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-4">Professional</h3>
+                        <div class="text-4xl font-black mb-2">R$ 397</div>
+                        <p class="opacity-80">/mês</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-yellow-400 mr-3"></i>
+                            Atendentes ilimitados
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-yellow-400 mr-3"></i>
+                            Conexões ilimitadas
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-yellow-400 mr-3"></i>
+                            IA avançada e automação
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-yellow-400 mr-3"></i>
+                            WhiteLabel completo
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-yellow-400 mr-3"></i>
+                            Suporte prioritário
+                        </li>
+                    </ul>
+                    <button class="w-full bg-white text-purple-600 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors">
+                        Escolher Plano
+                    </button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="pricing-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                        <div class="text-4xl font-black logo-gradient mb-2">Customizado</div>
+                        <p class="text-gray-600">Sob medida</p>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-500 mr-3"></i>
+                            Solução personalizada
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-500 mr-3"></i>
+                            Integrações customizadas
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-500 mr-3"></i>
+                            Infraestrutura dedicada
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-500 mr-3"></i>
+                            Suporte 24/7
+                        </li>
+                    </ul>
+                    <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-full font-semibold hover:bg-gray-300 transition-colors">
+                        Falar com Consultor
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6">
+                    <span class="text-shimmer">O Que Dizem Nossos Clientes</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Histórias reais de transformação e sucesso
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            M
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Maria Santos</h4>
+                            <p class="text-gray-600 text-sm">CEO, Loja Fashion</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Revolucionou nosso atendimento! Aumentamos as vendas em 300% no primeiro mês. O sistema é intuitivo e o suporte é excepcional."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            J
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">João Silva</h4>
+                            <p class="text-gray-600 text-sm">Diretor, TechStart</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "A automação inteligente nos permitiu atender 10x mais clientes com a mesma equipe. ROI incrível em menos de 30 dias!"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                            A
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Ana Costa</h4>
+                            <p class="text-gray-600 text-sm">Proprietária, Agência Digital</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "Agora oferecemos o ArsenalCache como nosso próprio produto. Clientes adoram a personalização e geramos receita recorrente!"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="gradient-bg absolute inset-0"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center text-white">
+                <img src="attached_assets/logo 14_1757072525717.png" alt="ArsenalCache Logo" class="h-20 w-auto mx-auto mb-8 hero-animation">
+                <h2 class="text-4xl font-bold mb-6">
+                    Pronto para Revolucionar seu Negócio?
+                </h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+                    Junte-se a mais de 1.200 empresas que já transformaram seus resultados com o ArsenalCache Whaticket Pro
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <div class="glassmorphism px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-bolt mr-2"></i>
+                        Instalação em 24h
+                    </div>
+                    <div class="glassmorphism px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        Garantia de 30 dias
+                    </div>
+                    <div class="glassmorphism px-6 py-3 rounded-full flex items-center">
+                        <i class="fas fa-headset mr-2"></i>
+                        Suporte especializado
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#pricing" class="modern-button pulse-glow text-white font-bold py-4 px-8 rounded-full inline-flex items-center">
+                        <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                        Começar Minha Transformação
+                    </a>
+                    <a href="#contact" class="glassmorphism text-white hover:bg-white hover:text-purple-600 font-semibold py-4 px-8 rounded-full inline-flex items-center transition-all duration-300">
+                        <i class="fas fa-comments mr-3"></i>
+                        Falar com Consultor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 section-blur">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">
+                        <span class="text-shimmer">Entre em Contato</span>
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Nossa equipe está pronta para ajudar você a transformar seu atendimento
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div>
+                        <div class="space-y-8">
+                            <div class="flex items-start">
+                                <div class="gradient-bg w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fab fa-whatsapp text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">WhatsApp Direto</h3>
+                                    <p class="text-gray-600">Fale agora com nossa equipe especializada</p>
+                                    <a href="https://wa.me/5511999999999" class="text-purple-600 font-semibold hover:underline">
+                                        +55 11 99999-9999
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="gradient-bg w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Email</h3>
+                                    <p class="text-gray-600">Suporte técnico e comercial</p>
+                                    <a href="mailto:contato@arsenalcache.com" class="text-purple-600 font-semibold hover:underline">
+                                        contato@arsenalcache.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="gradient-bg w-12 h-12 rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Horário de Atendimento</h3>
+                                    <p class="text-gray-600">Segunda a Sexta: 8h às 18h</p>
+                                    <p class="text-gray-600">Sábado: 8h às 14h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="feature-card bg-white p-8 rounded-3xl shadow-lg">
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-500 focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-500 focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telefone/WhatsApp</label>
+                                <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-500 focus:outline-none transition-colors">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensagem</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-purple-500 focus:outline-none transition-colors"></textarea>
+                            </div>
+                            <button type="submit" class="w-full modern-button text-white font-bold py-3 rounded-xl transition-all duration-300">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-6 md:mb-0">
+                    <img src="attached_assets/logo 14_1757072525717.png" alt="ArsenalCache Logo" class="h-10 w-auto">
+                    <div>
+                        <h3 class="font-bold text-lg">ArsenalCache</h3>
+                        <p class="text-gray-400 text-sm">Whaticket Pro Revolution</p>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 ArsenalCache Whaticket Pro. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrolled / scrollHeight) * 100;
+            document.getElementById('scrollIndicator').style.width = progress + '%';
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.pageYOffset > 100) {
+                navbar.classList.add('section-blur');
+            } else {
+                navbar.classList.remove('section-blur');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+
+            // Simulate form submission
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Enviando...';
+            submitBtn.disabled = true;
+
+            try {
+                // Replace with your actual webhook URL
+                const response = await fetch('https://n8n.yuccie.pro/webhook/070b01a5-cd88-4b6a-af16-c7279e82b848', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('✅ Mensagem enviada com sucesso! Nossa equipe entrará em contato em breve.');
+                    this.reset();
+                } else {
+                    throw new Error('Erro ao enviar mensagem');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ Ocorreu um erro ao enviar sua mensagem. Por favor, entre em contato pelo WhatsApp: +55 11 99999-9999');
+            } finally {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add some interactive feedback
+        document.querySelectorAll('.modern-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('div');
+                ripple.className = 'absolute inset-0 bg-white opacity-20 rounded-full scale-0';
+                ripple.style.animation = 'ping 0.6s cubic-bezier(0, 0, 0.2, 1)';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    </script>
+</body>
+</html>
