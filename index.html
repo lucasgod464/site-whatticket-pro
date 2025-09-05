@@ -25,13 +25,43 @@
                 const encodedMessage = encodeURIComponent(message);
                 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
                 link.href = whatsappUrl;
+                
+                // Garante que o link seja clicável
+                link.style.pointerEvents = 'auto';
+                link.style.cursor = 'pointer';
+                link.style.position = 'relative';
+                link.style.zIndex = '10';
+                
                 console.log(`WhatsApp Link ${index + 1}:`, whatsappUrl);
+                
+                // Adiciona event listener como backup
+                link.addEventListener('click', function(e) {
+                    console.log('Clique detectado no link:', whatsappUrl);
+                    if (this.href && this.href !== '#') {
+                        window.open(this.href, '_blank');
+                    }
+                });
             });
             
             // Configura links de teste grátis
             document.querySelectorAll('.free-trial-link').forEach((link, index) => {
                 link.href = freeTrialLink;
+                
+                // Garante que o link seja clicável
+                link.style.pointerEvents = 'auto';
+                link.style.cursor = 'pointer';
+                link.style.position = 'relative';
+                link.style.zIndex = '10';
+                
                 console.log(`Free Trial Link ${index + 1}:`, freeTrialLink);
+                
+                // Adiciona event listener como backup
+                link.addEventListener('click', function(e) {
+                    console.log('Clique detectado no teste grátis:', freeTrialLink);
+                    if (this.href && this.href !== '#') {
+                        window.open(this.href, '_blank');
+                    }
+                });
             });
         }
         
@@ -55,6 +85,14 @@
 
         .gradient-bg {
             background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #3B82F6 100%);
+        }
+        
+        /* Garante que os botões sejam clicáveis */
+        .whatsapp-link, .free-trial-link {
+            pointer-events: auto !important;
+            cursor: pointer !important;
+            z-index: 10 !important;
+            position: relative !important;
         }
 
         .logo-gradient {
