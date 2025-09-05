@@ -3,6 +3,8 @@ FROM nginx:alpine
 
 # Copy static files to nginx html directory
 COPY index.html /usr/share/nginx/html/
+COPY config.js /usr/share/nginx/html/
+COPY env-config.js /usr/share/nginx/html/
 COPY attached_assets/ /usr/share/nginx/html/attached_assets/
 
 # Create custom nginx configuration for better performance
