@@ -15,15 +15,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Website Server"
+args = "API Server"
 
 [[workflows.workflow]]
-name = "Website Server"
+name = "API Server"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npx http-server -p 5000 -a 0.0.0.0 --cors"
+args = "node server.js"
 waitForPort = 5000
 
 [workflows.workflow.metadata]

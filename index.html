@@ -12,18 +12,31 @@
     <script src="env-config.js"></script>
     <script src="config.js"></script>
     <script>
-        // Configuração direta dos links
-        function setupLinks() {
-            const whatsappNumber = '5512981156856';
-            const freeTrialLink = 'https://meu-teste-gratis.com/cadastro';
+        // Configuração dinâmica dos links via API
+        async function setupLinks() {
+            console.log('Carregando configurações da API...');
             
-            console.log('Configurando links diretamente...');
+            let config;
+            try {
+                // Busca configurações da API
+                const response = await fetch('/api/config');
+                config = await response.json();
+                console.log('Configurações carregadas:', config);
+            } catch (error) {
+                console.log('Erro ao carregar configurações da API, usando valores padrão:', error);
+                // Fallback para valores padrão
+                config = {
+                    WHATSAPP_NUMBER: '5512981156856',
+                    FREE_TRIAL_LINK: 'https://meu-teste-gratis.com/cadastro',
+                    CONTACT_WEBHOOK_URL: 'https://n8n.yuccie.pro/webhook/070b01a5-cd88-4b6a-af16-c7279e82b848'
+                };
+            }
             
             // Configura links do WhatsApp
             document.querySelectorAll('.whatsapp-link').forEach((link, index) => {
                 const message = link.dataset.message || 'Olá! Tenho interesse no Whaticket Pro.';
                 const encodedMessage = encodeURIComponent(message);
-                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                const whatsappUrl = `https://wa.me/${config.WHATSAPP_NUMBER}?text=${encodedMessage}`;
                 link.href = whatsappUrl;
                 
                 // Garante que o link seja clicável
@@ -45,7 +58,7 @@
             
             // Configura links de teste grátis
             document.querySelectorAll('.free-trial-link').forEach((link, index) => {
-                link.href = freeTrialLink;
+                link.href = config.FREE_TRIAL_LINK;
                 
                 // Garante que o link seja clicável
                 link.style.pointerEvents = 'auto';
@@ -53,16 +66,21 @@
                 link.style.position = 'relative';
                 link.style.zIndex = '10';
                 
-                console.log(`Free Trial Link ${index + 1}:`, freeTrialLink);
+                console.log(`Free Trial Link ${index + 1}:`, config.FREE_TRIAL_LINK);
                 
                 // Adiciona event listener como backup
                 link.addEventListener('click', function(e) {
-                    console.log('Clique detectado no teste grátis:', freeTrialLink);
+                    console.log('Clique detectado no teste grátis:', config.FREE_TRIAL_LINK);
                     if (this.href && this.href !== '#') {
                         window.open(this.href, '_blank');
                     }
                 });
             });
+            
+            // Atualiza webhook do formulário
+            if (window.updateContactWebhook) {
+                window.updateContactWebhook(config.CONTACT_WEBHOOK_URL);
+            }
         }
         
         // Executa quando o DOM carregar
