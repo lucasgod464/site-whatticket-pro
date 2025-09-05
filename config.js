@@ -2,7 +2,7 @@
 const AppConfig = {
     // Valores padrão (caso não sejam definidas as variáveis de ambiente)
     defaultValues: {
-        whatsappNumber: '5511999999999',
+        whatsappNumber: '5512981156856',
         freeTrialLink: '#trial',
         contactWebhook: 'https://n8n.yuccie.pro/webhook/070b01a5-cd88-4b6a-af16-c7279e82b848'
     },
