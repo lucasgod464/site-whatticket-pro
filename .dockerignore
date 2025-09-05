@@ -1,0 +1,9 @@
+node_modules
+.git
+.replit
+replit.nix
+.env
+.env.local
+.DS_Store
+README.md
+.gitignore
