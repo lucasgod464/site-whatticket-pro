@@ -44,3 +44,15 @@ const AppConfig = {
         }
     }
 };
+
+// Executa quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', function() {
+    AppConfig.applyToPage();
+});
+
+// Também executa se o DOM já estiver carregado
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', AppConfig.applyToPage);
+} else {
+    AppConfig.applyToPage();
+}
