@@ -130,19 +130,19 @@
     <div class="scroll-indicator" id="scrollIndicator"></div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-4 py-4">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-200/20" id="navbar">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-3">
-                    <img src="attached_assets/logo 14_1757072525717.png" alt="ArsenalCache Logo" class="h-12 w-auto">
+                    <img src="attached_assets/logo 14_1757072525717.png" alt="ArsenalCache Whaticket Pro" class="h-10 w-auto">
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-700 hover:text-purple-600 transition-colors">Recursos</a>
-                    <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition-colors">Preços</a>
-                    <a href="#testimonials" class="text-gray-700 hover:text-purple-600 transition-colors">Depoimentos</a>
-                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors">Contato</a>
+                    <a href="#features" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">Recursos</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">Preços</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">Depoimentos</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors font-medium">Contato</a>
                 </div>
-                <a href="#pricing" class="modern-button text-white px-6 py-2 rounded-full font-semibold">
+                <a href="#pricing" class="modern-button text-white px-6 py-3 rounded-full font-semibold text-sm">
                     Começar Agora
                 </a>
             </div>
@@ -163,7 +163,6 @@
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center text-white">
                 <div class="mb-12 hero-animation">
-                    <img src="attached_assets/logo 14_1757072525717.png" alt="ArsenalCache Logo" class="h-24 w-auto mx-auto mb-8">
                     <h1 class="text-5xl md:text-7xl font-black mb-6">
                         Seu WhatsApp Business
                         <span class="block text-shimmer">Ultra Moderno</span>
@@ -610,7 +609,6 @@
         <div class="gradient-bg absolute inset-0"></div>
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center text-white">
-                <img src="attached_assets/logo 14_1757072525717.png" alt="ArsenalCache Logo" class="h-20 w-auto mx-auto mb-8 hero-animation">
                 <h2 class="text-4xl font-bold mb-6">
                     Pronto para Revolucionar seu Negócio?
                 </h2>
@@ -778,15 +776,7 @@
             document.getElementById('scrollIndicator').style.width = progress + '%';
         });
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.pageYOffset > 100) {
-                navbar.classList.add('section-blur');
-            } else {
-                navbar.classList.remove('section-blur');
-            }
-        });
+        // Navbar is now always styled, no need for scroll detection
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
