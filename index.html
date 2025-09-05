@@ -94,6 +94,25 @@
             z-index: 10 !important;
             position: relative !important;
         }
+        
+        /* Botão de desconto super destacado */
+        .whatsapp-link:has(.fa-whatsapp.animate-pulse) {
+            background: linear-gradient(135deg, #25D366, #128C7E, #075E54) !important;
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.3), 0 0 30px rgba(37, 211, 102, 0.2) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            animation: discount-glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes discount-glow {
+            0% {
+                box-shadow: 0 20px 40px rgba(37, 211, 102, 0.3), 0 0 30px rgba(37, 211, 102, 0.2);
+                transform: scale(1);
+            }
+            100% {
+                box-shadow: 0 25px 50px rgba(37, 211, 102, 0.5), 0 0 40px rgba(37, 211, 102, 0.4);
+                transform: scale(1.02);
+            }
+        }
 
         .logo-gradient {
             background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 100%);
@@ -619,8 +638,10 @@
                     </div>
 
                     <div class="text-center mb-8 md:mb-12">
-                        <a href="#" class="w-full sm:w-auto gradient-bg text-white hover:opacity-90 font-bold py-4 px-8 md:px-12 rounded-full inline-flex items-center justify-center text-base md:text-lg pulse-glow transition-all duration-300">
-                            <i class="fab fa-whatsapp mr-2 md:mr-3 text-lg md:text-xl"></i>
+                        <a href="#" class="whatsapp-link w-full sm:w-auto gradient-bg text-white hover:opacity-90 font-bold py-4 px-8 md:px-12 rounded-full inline-flex items-center justify-center text-base md:text-lg pulse-glow transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105" 
+                           data-message="Olá! Tenho interesse no Whaticket Pro com desconto especial. Gostaria de garantir a oferta de R$ 495,90 (6x sem juros)." 
+                           target="_blank">
+                            <i class="fab fa-whatsapp mr-2 md:mr-3 text-lg md:text-xl animate-pulse"></i>
                             GARANTIR DESCONTO AGORA
                         </a>
                     </div>
