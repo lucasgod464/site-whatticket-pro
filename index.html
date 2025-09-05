@@ -1318,15 +1318,22 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                // Só aplica smooth scroll para links internos válidos
+                if (targetId === '#' || !targetId.startsWith('#') || targetId.includes('http')) return;
+                
+                e.preventDefault();
+                
+                try {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                } catch(error) {
+                    console.log('Link não é um seletor válido:', targetId);
                 }
             });
         });
