@@ -6,6 +6,38 @@ const AppConfig = {
         freeTrialLink: '#trial',
         contactWebhook: 'https://n8n.yuccie.pro/webhook/070b01a5-cd88-4b6a-af16-c7279e82b848'
     },
+    
+    // Cache das configurações
+    configCache: null,
+    lastFetch: 0,
+    cacheTime: 30000, // 30 segundos
+
+    // Carrega configurações da API ou usa valores padrão
+    async loadFromAPI() {
+        try {
+            // Verifica se o cache ainda é válido
+            const now = Date.now();
+            if (this.configCache && (now - this.lastFetch) < this.cacheTime) {
+                return this.configCache;
+            }
+            
+            const response = await fetch('/api/config');
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success) {
+                    this.configCache = result.data;
+                    this.lastFetch = now;
+                    console.log('✅ Configurações carregadas da API:', result.data);
+                    return result.data;
+                }
+            }
+        } catch (error) {
+            console.log('⚠️ Erro ao carregar da API, usando valores locais:', error.message);
+        }
+        
+        // Fallback para configurações locais
+        return this.load();
+    },
 
     // Carrega configurações do backend ou usa valores padrão
     load() {
@@ -17,15 +49,15 @@ const AppConfig = {
     },
 
     // Formata número do WhatsApp para link
-    getWhatsAppLink(message = '') {
-        const config = this.load();
+    getWhatsAppLink(message = '', config = null) {
+        if (!config) config = this.load();
         const encodedMessage = encodeURIComponent(message);
         return `https://wa.me/${config.whatsappNumber}?text=${encodedMessage}`;
     },
 
     // Aplica configurações na página
-    applyToPage() {
-        const config = this.load();
+    async applyToPage() {
+        const config = await this.loadFromAPI();
         console.log('Aplicando configurações:', config);
         
         // Atualiza todos os links de WhatsApp
@@ -34,7 +66,7 @@ const AppConfig = {
         
         whatsappLinks.forEach((link, index) => {
             const message = link.dataset.message || 'Olá! Tenho interesse no Whaticket Pro.';
-            const whatsappUrl = this.getWhatsAppLink(message);
+            const whatsappUrl = this.getWhatsAppLink(message, config);
             link.href = whatsappUrl;
             console.log(`Link ${index + 1} atualizado para:`, whatsappUrl);
         });
@@ -48,10 +80,39 @@ const AppConfig = {
             console.log(`Link teste grátis ${index + 1} atualizado para:`, config.freeTrialLink);
         });
 
+        // Atualiza conteúdo dinâmico da página
+        this.updatePageContent(config);
+
         // Atualiza webhook do formulário
         if (window.updateContactWebhook) {
             window.updateContactWebhook(config.contactWebhook);
         }
+    },
+    
+    // Atualiza conteúdo dinâmico da página
+    updatePageContent(config) {
+        // Atualiza títulos se existirem na configuração
+        if (config.heroTitle) {
+            const heroTitles = document.querySelectorAll('[data-config="hero-title"]');
+            heroTitles.forEach(el => el.textContent = config.heroTitle);
+        }
+        
+        if (config.heroSubtitle) {
+            const heroSubtitles = document.querySelectorAll('[data-config="hero-subtitle"]');
+            heroSubtitles.forEach(el => el.textContent = config.heroSubtitle);
+        }
+        
+        if (config.price) {
+            const priceElements = document.querySelectorAll('[data-config="price"]');
+            priceElements.forEach(el => el.textContent = config.price);
+        }
+        
+        if (config.companyName) {
+            const companyElements = document.querySelectorAll('[data-config="company-name"]');
+            companyElements.forEach(el => el.textContent = config.companyName);
+        }
+        
+        console.log('📄 Conteúdo da página atualizado via API');
     }
 };
 
