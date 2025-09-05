@@ -11,6 +11,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="env-config.js"></script>
     <script src="config.js"></script>
+    <script>
+        // Configuração direta dos links
+        function setupLinks() {
+            const whatsappNumber = '5512981156856';
+            const freeTrialLink = 'https://meu-teste-gratis.com/cadastro';
+            
+            console.log('Configurando links diretamente...');
+            
+            // Configura links do WhatsApp
+            document.querySelectorAll('.whatsapp-link').forEach((link, index) => {
+                const message = link.dataset.message || 'Olá! Tenho interesse no Whaticket Pro.';
+                const encodedMessage = encodeURIComponent(message);
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                link.href = whatsappUrl;
+                console.log(`WhatsApp Link ${index + 1}:`, whatsappUrl);
+            });
+            
+            // Configura links de teste grátis
+            document.querySelectorAll('.free-trial-link').forEach((link, index) => {
+                link.href = freeTrialLink;
+                console.log(`Free Trial Link ${index + 1}:`, freeTrialLink);
+            });
+        }
+        
+        // Executa quando o DOM carregar
+        document.addEventListener('DOMContentLoaded', setupLinks);
+        
+        // Força a execução após carregar todos os scripts
+        window.addEventListener('load', function() {
+            console.log('Página totalmente carregada, executando configurações...');
+            setupLinks();
+            if (window.reinitializeLinks) {
+                window.reinitializeLinks();
+            }
+        });
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
