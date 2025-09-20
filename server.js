@@ -66,7 +66,8 @@ const server = http.createServer((req, res) => {
         const config = {
             WHATSAPP_NUMBER: process.env.WHATSAPP_NUMBER || '5512981156856',
             FREE_TRIAL_LINK: process.env.FREE_TRIAL_LINK || 'https://testewhaticket.suamarca.pro/',
-            CONTACT_WEBHOOK_URL: process.env.CONTACT_WEBHOOK_URL || 'https://n8n.yuccie.pro/webhook/070b01a5-cd88-4b6a-af16-c7279e82b848'
+            CONTACT_WEBHOOK_URL: process.env.CONTACT_WEBHOOK_URL || 'https://n8n.yuccie.pro/webhook/fe78628e-f915-401d-9ee7-b637f3bcc916'
+
         };
         
         res.end(JSON.stringify(config));
@@ -88,5 +89,6 @@ server.listen(PORT, '0.0.0.0', () => {
     console.log(`🔧 Variáveis de ambiente carregadas:`);
     console.log(`   WHATSAPP_NUMBER: ${process.env.WHATSAPP_NUMBER || '5512981156856'}`);
     console.log(`   FREE_TRIAL_LINK: ${process.env.FREE_TRIAL_LINK || 'https://testewhaticket.suamarca.pro/'}`);
-    console.log(`   CONTACT_WEBHOOK_URL: ${process.env.CONTACT_WEBHOOK_URL || 'https://n8n.yuccie.pro/webhook/070b01a5-cd88-4b6a-af16-c7279e82b848'}`);
+    console.log(`   CONTACT_WEBHOOK_URL: ${process.env.CONTACT_WEBHOOK_URL || 'https://n8n.yuccie.pro/webhook/fe78628e-f915-401d-9ee7-b637f3bcc916'}`);
+
 });
