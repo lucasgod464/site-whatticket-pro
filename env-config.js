@@ -4,7 +4,7 @@
 // Configurações padrão (podem ser sobrescritas)
 window.ENV = {
     WHATSAPP_NUMBER: '5512981156856',
-    FREE_TRIAL_LINK: 'https://meu-teste-gratis.com/cadastro',
+    FREE_TRIAL_LINK: 'https://testewhaticket.suamarca.pro/',
     CONTACT_WEBHOOK_URL: 'https://n8n.yuccie.pro/webhook/070b01a5-cd88-4b6a-af16-c7279e82b848'
 };
 
